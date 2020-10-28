@@ -100,7 +100,7 @@ func Insert(ctx context.Context, db Querier, data struct{}, additionalQuery stri
 
 	_, err := db.Query(ctx, sql)
 	if err != nil {
-		return errors.Wrap(err, "scany: query multiple result rows")
+		return errors.Wrap(err, "scany: insertion error")
 	}
 
 	return errors.WithStack(err)

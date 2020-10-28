@@ -45,6 +45,7 @@ go get github.com/KirksFletcher/scany
 
 
 ## `pgx` native interface
+### Select example
 
 ```go
 package main
@@ -71,6 +72,41 @@ func main() {
 	var users []*User
 	pgxscan.Select(ctx, db, &users, `SELECT id, name, email, age FROM users`)
 	// users variable now contains data from all rows.
+}
+```
+
+### Insert example
+
+```go
+package main
+
+import (
+	"context"
+
+	"github.com/jackc/pgx/v4/pgxpool"
+	"github.com/KirksFletcher/pgxscan"
+)
+
+type User struct {
+	ID    string `pgx:"id"` //will be inserted as id
+	Name  string `pgx:"user_name"` //will be inserted as user_name
+	Email string `pgx:"user_email"` //will be inserted as user_email
+	UserAge   int     //no pgx tag will auto snakecase:- will be inserted as user_age
+}
+
+func main() {
+	ctx := context.Background()
+	db, _ := pgxpool.Connect(ctx, "example-connection-url")
+
+    user := User{
+        ID:     "user_1",
+        Name:   "User Name",
+        Email:  "user@email.com",
+        Age:    40,
+        }	
+
+	pgxscan.Insert(ctx, db, user, ``)
+	
 }
 ```
 

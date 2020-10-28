@@ -99,7 +99,7 @@ func main() {
         Age:    40,
         }	
 
-	pgxscan.Insert(ctx, db, user, ``)
+	pgxscan.Insert(ctx, db, user, "my_user_table", ` ADDITIONAL QUERIES TO BE APPENDED OR BLANK`)
 	
 }
 ```

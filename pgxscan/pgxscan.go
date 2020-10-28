@@ -89,7 +89,7 @@ func Insert(ctx context.Context, db Querier, data struct{}, additionalQuery stri
 		case reflect.Float32:
 			v = fmt.Sprintf("%f", value.Float())
 		default:
-			return errors.Wrap(err, "scany: struct type not yet supported")
+			return errors.Wrap(errors.New("type: " + value.Kind().String() + " unsupported"), "scany: this type not yet supported")
 		}
 
 		dbVals = append(dbVals, v)

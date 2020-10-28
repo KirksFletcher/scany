@@ -2,7 +2,12 @@ package pgxscan
 
 import (
 	"context"
+	"fmt"
 	"github.com/jackc/pgx"
+	"reflect"
+	"regexp"
+	"strconv"
+	"strings"
 
 	"github.com/jackc/pgx/v4"
 	"github.com/jackc/pgx/v4/pgxpool"
@@ -23,6 +28,16 @@ var (
 	_ Querier = pgx.Tx(nil)
 )
 
+var matchFirstCap = regexp.MustCompile("(.)([A-Z][a-z]+)")
+var matchAllCap   = regexp.MustCompile("([a-z0-9])([A-Z])")
+
+
+func toSnakeCase(str string) string {
+	snake := matchFirstCap.ReplaceAllString(str, "${1}_${2}")
+	snake  = matchAllCap.ReplaceAllString(snake, "${1}_${2}")
+	return strings.ToLower(snake)
+}
+
 // Select is a high-level function that queries rows from Querier and calls the ScanAll function.
 // See ScanAll for details.
 func Select(ctx context.Context, db Querier, dst interface{}, query string, args ...interface{}) error {
@@ -31,6 +46,63 @@ func Select(ctx context.Context, db Querier, dst interface{}, query string, args
 		return errors.Wrap(err, "scany: query multiple result rows")
 	}
 	err = ScanAll(dst, rows)
+	return errors.WithStack(err)
+}
+
+// Basic Insert function to allow for inserting structs
+func Insert(ctx context.Context, db Querier, data struct{}, additionalQuery string) error {
+
+	fields := reflect.TypeOf(data)
+	values := reflect.ValueOf(data)
+
+	num := fields.NumField()
+	var dbCols []string
+	var dbVals []string
+
+	for i := 0; i < num; i++ {
+		field := fields.Field(i)
+		value := values.Field(i)
+
+		val, exists := field.Tag.Lookup("pgx")
+
+		if exists {
+			dbCols = append(dbCols, "'" + val + "'")
+		}else{
+			dbCols = append(dbCols, "'" + toSnakeCase(field.Name) + "'")
+		}
+
+		var v string
+
+		switch value.Kind() {
+		case reflect.String:
+			v = value.String()
+		case reflect.Int:
+			v = strconv.FormatInt(value.Int(), 10)
+		case reflect.Int8:
+			v = strconv.FormatInt(value.Int(), 10)
+		case reflect.Int32:
+			v = strconv.FormatInt(value.Int(), 10)
+		case reflect.Int64:
+			v = strconv.FormatInt(value.Int(), 10)
+		case reflect.Float64:
+			v = fmt.Sprintf("%f", value.Float())
+		case reflect.Float32:
+			v = fmt.Sprintf("%f", value.Float())
+		default:
+			return errors.Wrap(err, "scany: struct type not yet supported")
+		}
+
+		dbVals = append(dbVals, v)
+
+	}
+
+	sql := "INSERT INTO testschema.testtable (" + strings.Join(dbCols, ", ") + ") VALUES (" + strings.Join(dbVals, ", ") + ") " + additionalQuery
+
+	_, err := db.Query(ctx, sql)
+	if err != nil {
+		return errors.Wrap(err, "scany: query multiple result rows")
+	}
+
 	return errors.WithStack(err)
 }
 

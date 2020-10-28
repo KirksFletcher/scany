@@ -40,43 +40,11 @@ Secondly, it doesn't know anything about relations between objects e.g: one to m
 ## Install
 
 ```
-go get github.com/KirksFletcher
+go get github.com/KirksFletcher/scany
 ```
 
-## How to use with `database/sql`
 
-```go
-package main
-
-import (
-	"context"
-	"database/sql"
-
-	"github.com/KirksFletcher/sqlscan"
-)
-
-type User struct {
-	ID    string
-	Name  string
-	Email string
-	Age   int
-}
-
-func main() {
-	ctx := context.Background()
-	db, _ := sql.Open("postgres", "example-connection-url")
-
-	var users []*User
-	sqlscan.Select(ctx, db, &users, `SELECT id, name, email, age FROM users`)
-	// users variable now contains data from all rows.
-}
-```
-
-Use [`sqlscan`](https://pkg.go.dev/github.com/KirksFletcher/sqlscan) 
-package to work with `database/sql` standard library. 
-
-
-## How to use with `pgx` native interface
+## `pgx` native interface
 
 ```go
 package main
@@ -114,7 +82,6 @@ package to work with `pgx` library native interface.
 Use [`dbscan`](https://pkg.go.dev/github.com/KirksFletcher/dbscan) package that works with an abstract database, 
 and can be integrated with any library that has a concept of rows. 
 This particular package implements core scany features and contains all the logic.
-Both `sqlscan` and `pgxscan` use `dbscan` internally.
 
 ## Comparisson with [sqlx](https://github.com/jmoiron/sqlx)
 

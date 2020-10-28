@@ -2,21 +2,8 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="d459976a-983d-46d5-a0a3-b9debd994ee8" name="Default Changelist" comment="">
-      <change beforePath="$PROJECT_DIR$/.golangci.yml" beforeDir="false" afterPath="$PROJECT_DIR$/.golangci.yml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/README.md" beforeDir="false" afterPath="$PROJECT_DIR$/README.md" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/dbscan/dbscan_test.go" beforeDir="false" afterPath="$PROJECT_DIR$/dbscan/dbscan_test.go" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/dbscan/example_test.go" beforeDir="false" afterPath="$PROJECT_DIR$/dbscan/example_test.go" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/dbscan/helpers_test.go" beforeDir="false" afterPath="$PROJECT_DIR$/dbscan/helpers_test.go" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/dbscan/rowscanner_test.go" beforeDir="false" afterPath="$PROJECT_DIR$/dbscan/rowscanner_test.go" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/go.mod" beforeDir="false" afterPath="$PROJECT_DIR$/go.mod" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/pgxscan/doc.go" beforeDir="false" afterPath="$PROJECT_DIR$/pgxscan/doc.go" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/pgxscan/example_test.go" beforeDir="false" afterPath="$PROJECT_DIR$/pgxscan/example_test.go" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/pgxscan/pgxscan.go" beforeDir="false" afterPath="$PROJECT_DIR$/pgxscan/pgxscan.go" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/pgxscan/pgxscan_test.go" beforeDir="false" afterPath="$PROJECT_DIR$/pgxscan/pgxscan_test.go" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/sqlscan/doc.go" beforeDir="false" afterPath="$PROJECT_DIR$/sqlscan/doc.go" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/sqlscan/example_test.go" beforeDir="false" afterPath="$PROJECT_DIR$/sqlscan/example_test.go" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/sqlscan/sqlscan.go" beforeDir="false" afterPath="$PROJECT_DIR$/sqlscan/sqlscan.go" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/sqlscan/sqlscan_test.go" beforeDir="false" afterPath="$PROJECT_DIR$/sqlscan/sqlscan_test.go" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />

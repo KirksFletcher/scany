@@ -6,6 +6,10 @@
 [![PkgGoDev](https://pkg.go.dev/badge/github.com/KirksFletcher)](https://pkg.go.dev/github.com/KirksFletcher)
 [![Mentioned in Awesome Go](https://awesome.re/mentioned-badge.svg)](https://github.com/avelino/awesome-go)  
 
+## Moifications
+
+All credit where credit is due, this project is based off scany by Georgy Savva ( https://github.com/georgysavva/scany ), The aim of this version is to make it pgx compatible only, making this lighter weight also adding features for inserting with a struct (with tag definition)
+
 ## Overview
 
 Go favors simplicity, and it's pretty common to work with a database via driver directly without any ORM.

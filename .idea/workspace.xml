@@ -20,6 +20,9 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="d459976a-983d-46d5-a0a3-b9debd994ee8" name="Default Changelist" comment="">
+      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/go.mod" beforeDir="false" afterPath="$PROJECT_DIR$/go.mod" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/go.sum" beforeDir="false" afterPath="$PROJECT_DIR$/go.sum" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/pgxscan/pgxscan.go" beforeDir="false" afterPath="$PROJECT_DIR$/pgxscan/pgxscan.go" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
@@ -71,9 +74,10 @@
       <screen x="3072" y="0" width="3072" height="1728" />
     </state>
     <state x="3072" y="144" width="1935" height="1128" key="dock-window-1/3072.0.3072.1728/0.44.3072.1684@0.44.3072.1684" timestamp="1603897798894" />
-    <state x="4305" y="608" width="606" height="602" key="find.popup" timestamp="1603892626272">
-      <screen x="3072" y="0" width="3072" height="1728" />
+    <state x="1233" y="637" width="609" height="816" key="find.popup" timestamp="1603901715260">
+      <screen x="0" y="44" width="3072" height="1684" />
     </state>
+    <state x="1233" y="637" width="609" height="816" key="find.popup/3072.0.3072.1728/0.44.3072.1684@0.44.3072.1684" timestamp="1603901715260" />
     <state x="4305" y="608" width="606" height="602" key="find.popup/3072.0.3072.1728/0.44.3072.1684@3072.0.3072.1728" timestamp="1603892626272" />
   </component>
 </project>

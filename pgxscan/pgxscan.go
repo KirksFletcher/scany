@@ -3,7 +3,6 @@ package pgxscan
 import (
 	"context"
 	"fmt"
-	"github.com/jackc/pgx"
 	"reflect"
 	"regexp"
 	"strconv"
@@ -13,7 +12,7 @@ import (
 	"github.com/jackc/pgx/v4/pgxpool"
 	"github.com/pkg/errors"
 
-	"github.com/KirksFletcher/dbscan"
+	"github.com/KirksFletcher/scany/dbscan"
 )
 
 // Querier is something that pgxscan can query and get the pgx.Rows from.
@@ -23,6 +22,7 @@ type Querier interface {
 }
 
 var (
+	_ Querier = &pgxpool.Conn{}
 	_ Querier = &pgxpool.Pool{}
 	_ Querier = &pgx.Conn{}
 	_ Querier = pgx.Tx(nil)

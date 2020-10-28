@@ -50,7 +50,7 @@ func Select(ctx context.Context, db Querier, dst interface{}, query string, args
 }
 
 // Basic Insert function to allow for inserting structs
-func Insert(ctx context.Context, db Querier, data struct{}, table string, additionalQuery string) error {
+func Insert(ctx context.Context, db Querier, data interface{}, table string, additionalQuery string) error {
 
 	fields := reflect.TypeOf(data)
 	values := reflect.ValueOf(data)

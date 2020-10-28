@@ -1,10 +1,4 @@
-# scany
-
-[![Build Status](https://travis-ci.com/KirksFletcher.svg?branch=master)](https://travis-ci.com/KirksFletcher) 
-[![Go Report Card](https://goreportcard.com/badge/github.com/KirksFletcher)](https://goreportcard.com/report/github.com/KirksFletcher)
-[![codecov](https://codecov.io/gh/KirksFletcher/branch/master/graph/badge.svg)](https://codecov.io/gh/KirksFletcher)
-[![PkgGoDev](https://pkg.go.dev/badge/github.com/KirksFletcher)](https://pkg.go.dev/github.com/KirksFletcher)
-[![Mentioned in Awesome Go](https://awesome.re/mentioned-badge.svg)](https://github.com/avelino/awesome-go)  
+# scany (KF Edition)
 
 ## Moifications
 

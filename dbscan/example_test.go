@@ -1,7 +1,7 @@
 package dbscan_test
 
 import (
-	"github.com/georgysavva/scany/dbscan"
+	"github.com/KirksFletcher/dbscan"
 )
 
 func ExampleScanAll() {

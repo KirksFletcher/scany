@@ -2,12 +2,13 @@ package pgxscan
 
 import (
 	"context"
+	"github.com/jackc/pgx"
 
 	"github.com/jackc/pgx/v4"
 	"github.com/jackc/pgx/v4/pgxpool"
 	"github.com/pkg/errors"
 
-	"github.com/georgysavva/scany/dbscan"
+	"github.com/KirksFletcher/dbscan"
 )
 
 // Querier is something that pgxscan can query and get the pgx.Rows from.

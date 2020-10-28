@@ -66,16 +66,16 @@ func Insert(ctx context.Context, db Querier, data interface{}, table string, add
 		val, exists := field.Tag.Lookup("pgx")
 
 		if exists {
-			dbCols = append(dbCols, "'" + val + "'")
+			dbCols = append(dbCols, val)
 		}else{
-			dbCols = append(dbCols, "'" + toSnakeCase(field.Name) + "'")
+			dbCols = append(dbCols, toSnakeCase(field.Name))
 		}
 
 		var v string
 
 		switch value.Kind() {
 		case reflect.String:
-			v = value.String()
+			v = "'" + value.String() + "'"
 		case reflect.Int:
 			v = strconv.FormatInt(value.Int(), 10)
 		case reflect.Int8:
